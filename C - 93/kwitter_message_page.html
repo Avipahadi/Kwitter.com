@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>Kwitter Message Page</title>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="padding: 20px;background-color: rgb(160, 211, 255);">
+    <div style="display: none;">
+        <h1>Push notification demo</h1>
+        <p><a href="https://itnext.io/an-introduction-to-web-push-notifications-a701783917ce">Read the docs</a> - <a
+                href="https://github.com/Spyna/push-notification-demo">View the source code</a><br></p>
+        <h2>Push notification are supported by this browser: <span id="push-notification-supported"></span></h2>
+        <h2>User consent to push notification: <span id="push-notification-consent"></span></h2>
+        <div>
+            <h3>step 1 : Ask user consent to show notifications</h3><button disabled="disabled"
+                id="ask-user-permission-button">Ask user permission</button>
+        </div>
+        <div>
+            <h3>step 2 : Susbcribe to push notification</h3>
+            <p>this will create an endpoint that has to be sent to the push server</p><br><button disabled="disabled"
+                id="create-notification-subscription-button">Create notification subscription</button>
+        </div>
+        <div>
+            <h3>step 3 : Send the notification to the push server</h3><button disabled="disabled"
+                id="send-subscription-button">Send subscription to push server</button>
+        </div>
+        <div>
+            <h3>step 4 : Ask the push server for a notification</h3>
+            <p>in production you don't ask for notifications, The push server decide itself when to send them</p>
+            <br><button disabled="disabled" id="send-push-notification-button">Send a push notification</button>
+        </div>
+        <div>
+            <h3>User susbription:</h3>
+            <pre id="user-susbription"><code></code></pre>
+        </div>
+    </div>
+    <button style="float: right;margin-top: 20px;" type="button" onclick="logout();" class="btn btn-danger btn-sm">
+        <span class="glyphicon glyphicon-log-out"></span> Log out
+    </button>
+    <div class="container">
+        <center>
+            <h1 class="header">
+                <img class="logo" src="logo.png">
+                <br>
+                Kwitter
+                <sup>
+                    <img class="logo" src="m2.png">
+                </sup>
+            </h1>
+            <br>
+            <br>
+        </center>
+        <div id="output"></div>
+        <div style="margin-top: 20%;padding: 20px;background-color: rgb(123, 190, 248);">
+            <label><b>
+                    <h3>Message :</h3>
+                </b>
+                <br>
+                <input type="text" class="form-control" id="msg" placeholder="Message" style="width: 1265px;"></label>
+            <br>
+            <br>
+            <button id="send" onclick="send();" class="w-100 btn btn-success">Send</button>
+        </div>
+    </div>
+    <script src="kwitter_message_page.js"></script>
+</body>
+
+</html>
